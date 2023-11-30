@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,24 +24,32 @@
             top: 0;
             left: 0;
             background: transparent;
-            z-index: 1;
+            z-index: 2;
         }
 
         #logo {
-            font-size: 25vw; /* Largura da viewport */
+            font-size: 10vw; /* Largura da viewport */
             font-weight: bold;
-            color: white;
+            color: rgba(255, 0, 0, 0.6);
             text-align: center;
-            text-shadow: 0 5px 9px rgba(0, 0, 0, 0.3); /* Sombra adicionada */
-            z-index: 2;
+            text-shadow: 0 5px 9px rgba(0, 0, 0, 0.5); /* Sombra adicionada */
+            z-index: 3;
         }
 
         #christmas-lights {
             position: fixed;
             width: 100vw; /* 100% da largura da viewport */
-            top: 0; /* Fixa a imagem no topo */
-            margin-top: -20px; /* Ajuste para cima em relação à posição normal */
+            top: -30px; /* Fixa a imagem no topo */
             align-self: center;
+			 z-index: 4;
+        }
+		
+        #chao-de-neve {
+            position: fixed;
+            width: 100vw;
+            bottom: -100px;
+            align-self: center;
+            z-index: 1;
         }
 
         .snowflake {
@@ -65,9 +73,9 @@
 </head>
 <body>
     <img id="christmas-lights" src="https://yopropsdigital.com/cdn/shop/products/ChristmasLightsBlinking_1024x1024@2x.gif" alt="Christmas Lights">
-
-    <div id="snow"></div>
-    <div id="logo">C&amp;A</div>
+	<div id="snow"></div>
+	<img id="chao-de-neve" src="Chao com neve.png" alt="Chao com neve">
+    <div id="logo">FELIZ NATAL!</div>
 
     <script>
         // Adicionando efeito de neve
