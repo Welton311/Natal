@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #87CEEB; /* Azul claro, cor do céu */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Centraliza verticalmente e horizontalmente */
+            height: 100vh;
+            position: relative;
+        }
+
+        #snow {
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: transparent;
+            z-index: 1;
+        }
+
+        #logo {
+            font-size: 25vw; /* Largura da viewport */
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            text-shadow: 0 5px 9px rgba(0, 0, 0, 0.3); /* Sombra adicionada */
+            z-index: 2;
+        }
+
+        #christmas-lights {
+            position: fixed;
+            width: 100vw; /* 100% da largura da viewport */
+            top: 0; /* Fixa a imagem no topo */
+            margin-top: -20px; /* Ajuste para cima em relação à posição normal */
+            align-self: center;
+        }
+
+        .snowflake {
+            position: absolute;
+            width: 5px; /* Tamanho inicial */
+            height: 5px; /* Tamanho inicial */
+            background-color: white;
+            border-radius: 50%;
+            animation: snowfall linear infinite;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <img id="christmas-lights" src="https://yopropsdigital.com/cdn/shop/products/ChristmasLightsBlinking_1024x1024@2x.gif" alt="Christmas Lights">
+
+    <div id="snow"></div>
+    <div id="logo">C&amp;A</div>
+
+    <script>
+        // Adicionando efeito de neve
+        function createSnowflakes() {
+            const snowflakes = document.getElementById('snow');
+            const numberOfSnowflakes = 70;
+
+            for (let i = 0; i < numberOfSnowflakes; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snowflake.style.animationDelay = Math.random() + 's';
+                snowflake.style.opacity = Math.random();
+                const size = Math.random() * 20 + 5; // Tamanho entre 5 e 20 pixels
+                snowflake.style.width = size + 'px';
+                snowflake.style.height = size + 'px';
+                snowflakes.appendChild(snowflake);
+            }
+        }
+
+        createSnowflakes();
+    </script>
+</body>
+</html>
